@@ -1,0 +1,87 @@
+﻿@using Advansio.Core.Enums
+@model TransferViewModel
+
+@{
+    ViewData["Title"] = "Fund Transfer";
+    //Layout = "~/Views/Shared/_Dashboard.cshtml";
+
+}
+
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header"><strong>Funds Transfer</strong><small> </small></div>
+
+       
+        
+        <form asp-controller="Dashboard" asp-action="Transfer" method="post">
+            <div class="row">
+
+                
+                <div class="offset-2 col-lg-10">
+                    <span  class="text-danger">@ViewBag.Error</span>
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="card-body card-block">
+                        <div class="form-group"><label asp-for="Account" class=" form-control-label">Select Account</label>
+                            <input type="text" asp-for="Account" placeholder="Select Account " class="form-control">
+                            <span asp-validation-for="Account" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group"><label asp-for="AccountNumber" class=" form-control-label">Account Number</label>
+                            <input type="text" asp-for="AccountNumber" placeholder="Enter Account Number" class="form-control">
+                            <span asp-validation-for="AccountNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group"><label asp-for="AccountName" class=" form-control-label">Account Name</label>
+                            <input type="text" asp-for="AccountName" placeholder="Enter Account Name" class="form-control">
+                            <span asp-validation-for="AccountName" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card-body card-block">
+                        <div class="form-group"><label asp-for="Amount" class=" form-control-label"> Amount </label>
+                            <input type="number" asp-for="Amount" placeholder="0.00" class="form-control">
+                            <span asp-validation-for="Amount" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group ">
+                            <label asp-for="Bank" class="form-group"></label>
+                            <select asp-for="Bank" class="custom-select"
+                                    asp-items="Html.GetEnumSelectList<Bank>()">
+                                <option value=""> Select Recipient Bank</option>
+                            </select>
+                            <span asp-validation-for="Bank" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group"><label asp-for="Vat" class=" form-control-label">VAT</label>
+                            <input type="text" asp-for="Vat" placeholder="Enter VAT" class="form-control">
+                            <span asp-validation-for="Vat" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+       
+   
+    </div>
+</div>
+
+
+
+
+
+
