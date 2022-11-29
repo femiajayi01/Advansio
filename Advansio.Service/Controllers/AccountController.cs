@@ -17,20 +17,18 @@ namespace Advansio.Service.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly Context _context;  // This should be done in a Repository and Injected
         private readonly IConfiguration _config;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IWalletRepository _walletRepository;
 
-        public AccountController(Context context,
+        public AccountController(
             IConfiguration config, 
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IWalletRepository walletRepository
            )
         {
-            _context          = context;
             _config           = config;
             _userManager      = userManager;
             _signInManager    = signInManager;
